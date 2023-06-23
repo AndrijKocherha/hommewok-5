@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/nullstyle.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>task4</title>
+  </head>
+  <body>
+    <main class="page">
+      <div class="page__container task">
+        <div class="task__condition text">
+          14. Каса. Користувачу повідомляють суму, яку йому треба сплатити. Користувач поступово вводить суму грошей до тих пір, поки суми не буде достатньо для оплати
+          товарів (кожного разу користувачу повідомляють, яку ще суму потрібно ввести).
+        </div>
+        <script>
+          minSum = 300
+          maxSum = 1000
+          let sumUserMustToPay = minSum + Math.floor(Math.random() * (maxSum - minSum + 1))
+          console.log(sumUserMustToPay)
+          alert(`потрібно сплатити ${sumUserMustToPay} грн`)
+          let userPayment = parseInt(prompt("введіть скіьки ви хочете сплатити"))
+          if (sumUserMustToPay === userPayment) {
+            alert("ви оплаптили суму")
+          } else if (sumUserMustToPay < userPayment) {
+            alert(`ви оплаптили суму \nваша решта ${userPayment - sumUserMustToPay}`)
+          } else {
+            do {
+              sumUserMustToPay = sumUserMustToPay - userPayment
+              alert(`вам потрібно сплатит ще ${sumUserMustToPay}`)
+              userPayment = parseInt(prompt("введіть скіьки ви хочете ще сплатити"))
+              if (sumUserMustToPay < userPayment) {
+                alert(`ви оплаптили суму \nваша решта ${userPayment - sumUserMustToPay}`)
+                break
+              } else if (sumUserMustToPay === userPayment) {
+                alert("ви оплаптили суму")
+                break
+              }
+            } while (sumUserMustToPay > userPayment)
+          }
+        </script>
+      </div>
+    </main>
+  </body>
+</html>

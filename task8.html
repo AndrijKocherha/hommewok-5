@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/nullstyle.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>task2</title>
+  </head>
+  <body>
+    <main class="page">
+      <div class="page__container task">
+        <div class="task__condition text">
+          Користувач загадує число. За 3 спроби комп’ютер намагається вгадати число (нехай від 1 до 15 і копютер буде вгадувати від 1 до 15) користувача (використати
+          confirm).
+        </div>
+        <script>
+          let userNum = parseInt(prompt("загадайте число від 1 до 15"))
+          if (userNum >= 1 && userNum <= 15) {
+            for (let i = 0; i < 3; i++) {
+              const minNun = 1
+              const maxNum = 15
+              let computerTryToGuess = minNun + Math.floor(Math.random() * (maxNum - minNun + 1))
+              if (confirm(` число яке ви загадали ${computerTryToGuess}?`)) {
+                alert("компютер - ура я вгадав")
+                break
+              } else if (i === 2) {
+                alert("компютер - блін я не вгадав або мене обманули")
+              }
+            }
+          }
+        </script>
+      </div>
+    </main>
+  </body>
+</html>
